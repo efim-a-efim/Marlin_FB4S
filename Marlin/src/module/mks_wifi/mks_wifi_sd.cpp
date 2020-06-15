@@ -19,8 +19,6 @@ volatile uint8_t *dma_buff[] = {dma_buff1,dma_buff2};
 volatile uint8_t dma_buff_index=0;
 volatile uint8_t *buff;
 
-uint8_t __attribute__ ((aligned (4))) data[DATA_SIZE]; 
-
 void mks_wifi_sd_ls(void){
     FRESULT res;
     DIR dir;
