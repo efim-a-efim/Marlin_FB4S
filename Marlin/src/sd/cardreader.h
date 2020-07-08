@@ -156,9 +156,7 @@ public:
 
   static Sd2Card& getSd2Card() { return sd2card; }
 
-  #if ENABLED(MKS_WIFI)
   static uint8_t getDosFilename(char *file, char *dosfile);
-    #endif
 
   #if ENABLED(AUTO_REPORT_SD_STATUS)
     static void auto_report_sd_status();

@@ -1167,7 +1167,6 @@ void CardReader::fileHasFinished() {
 
 #endif // POWER_LOSS_RECOVERY
 
-#if ENABLED(MKS_WIFI)
 uint8_t CardReader::getDosFilename(char *file, char *dosfile){
     dir_t p;
     SdFile parent=root;
@@ -1338,10 +1337,6 @@ void CardReader::printListing(SdFile parent, const char * const prepend) {
 }
 
 */
-
-
-
-#endif
 
 
 #endif // SDSUPPORT

@@ -26,8 +26,9 @@
 #include <libmaple/stm32.h>
 
 #include "../../inc/MarlinConfig.h" // Allow pins/pins.h to set density
+#if ENABLED(MKS_WIFI) && ENABLED(MKS_WIFI_DEBUG)
 #include "../../module/mks_wifi/debug_to_uart.h"
-
+#endif
 #if defined(STM32_HIGH_DENSITY) || defined(STM32_XL_DENSITY)
 
 #include "sdio.h"

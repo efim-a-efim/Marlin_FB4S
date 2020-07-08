@@ -181,7 +181,7 @@
   #include "libs/L64XX/L64XX_Marlin.h"
 #endif
 
-#ifdef MKS_WIFI
+#if ENABLED(MKS_WIFI)
   #include "module/mks_wifi/mks_wifi.h"
 #endif
 

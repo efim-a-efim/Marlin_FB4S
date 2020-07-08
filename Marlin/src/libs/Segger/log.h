@@ -1,7 +1,9 @@
 #ifndef LOG_H
 #define LOG_H
 #include "SEGGER_RTT.h"
+#if ENABLED(MKS_WIFI) && ENABLED(MKS_WIFI_DEBUG)
 #include "../../module/mks_wifi/debug_to_uart.h"
+#endif
 
 #define DEBUG_MSG
 #define INFO_MSG

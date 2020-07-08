@@ -22,7 +22,9 @@
 #pragma once
 
 #include "../inc/MarlinConfig.h"
+#if ENABLED(MKS_WIFI)
 #include "../module/mks_wifi/mks_wifi.h"
+#endif
 #include <stdio.h>
 /**
  * Define debug bit-masks

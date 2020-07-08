@@ -3138,3 +3138,26 @@
 
 // Enable Marlin dev mode which adds some special commands
 //#define MARLIN_DEV_MODE
+
+//
+// Enable MKS WiFi module support
+//
+//#define MKS_WIFI
+
+//
+// Configure MKS WiFi module to connedt to the following network
+//
+//#define MKS_WIFI_CONFIGURE
+//#define MKS_WIFI_SSID
+//#define MKS_WIFI_KEY
+
+//
+// MKS WiFi debug to UART
+// Enables UART debugging output specific for MKS WiFi
+//
+//#define MKS_WIFI_DEBUG
+
+//
+// Test SDIO at firmware startup. Can produce useful information for debugging
+//
+//#define MKS_SDIO_TEST_AT_STARTUP

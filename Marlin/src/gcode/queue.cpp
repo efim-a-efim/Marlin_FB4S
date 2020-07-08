@@ -434,14 +434,14 @@ void GCodeQueue::get_serial_commands() {
 
       const char serial_char = c;
 
-    /* Если данные в Serial1 пропускаем через парсер 
-    бинарного протокола. Текстовую часть с G-Code пропускаем
-    дальше */
-     if(i == MKS_WIFI_SERIAL_NUM){
+      #if ENABLED(MKS_WIFI)
+      // If data come from MKS WiFi serial, parse its binary protocol.
+      if(i == MKS_WIFI_SERIAL_NUM){
         if(mks_wifi_input(c)){
           continue;
         };
       }
+      #endif
 
       if (ISEOL(serial_char)) {
         // Reset our state, continue if the line was empty

@@ -1,7 +1,9 @@
 #ifndef SMALL_CMSIS_H
 #define SMALL_CMSIS_H
 
-#include "mks_wifi.h"
+#include "../../MarlinCore.h"
+#include "../../inc/MarlinConfig.h"
+#include "mks_wifi_settings.h"
 
 #define     __IO    volatile             /*!< Defines 'read / write' permissions */
 #define     __I     volatile const       /*!< Defines 'read only' permissions */

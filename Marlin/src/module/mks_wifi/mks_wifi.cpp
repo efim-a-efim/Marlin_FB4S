@@ -2,7 +2,9 @@
 
 #include "../../lcd/ultralcd.h"
 #include "mks_wifi_sd.h"
+#if ENABLED(MKS_SDIO_TEST_AT_STARTUP)
 #include "mks_test_sdio.h"
+#endif
 
 uint8_t mks_in_buffer[ESP_PACKET_DATA_MAX_SIZE];
 uint8_t mks_out_buffer[ESP_PACKET_DATA_MAX_SIZE];
@@ -31,7 +33,7 @@ void mks_wifi_init(void){
 	safe_delay(1000);	
 	WRITE(MKS_WIFI_IO4, LOW);
 
-	#ifdef SDIO_TEST_AT_STARTUP
+	#if ENABLED(MKS_SDIO_TEST_AT_STARTUP)
 	mks_test_sdio();
 	#endif
 	
@@ -44,7 +46,7 @@ void mks_wifi_init(void){
 
 }
 
-
+#if ENABLED(MKS_WIFI_CONFIGURE)
 void mks_wifi_set_param(void){
 	uint32_t packet_size;
 	ESP_PROTOC_FRAME esp_frame;
@@ -72,6 +74,7 @@ void mks_wifi_set_param(void){
 	//выпихнуть в uart
 	mks_wifi_send(esp_packet, packet_size);
 }
+#endif
 
 /*
 Получает данные из всех функций, как только
@@ -111,7 +114,7 @@ void mks_wifi_out_add(uint8_t *data, uint32_t size){
 
 uint8_t mks_wifi_input(uint8_t data){
 	ESP_PROTOC_FRAME esp_frame;
-	#ifdef MKS_WIFI_ENABLED_WIFI_CONFIG 
+	#if ENABLED(MKS_WIFI_CONFIGURE)
 	static uint8_t get_packet_from_esp=0;
 	#endif
 	static uint8_t packet_start_flag=0;
@@ -146,7 +149,7 @@ uint8_t mks_wifi_input(uint8_t data){
 
 		mks_wifi_parse_packet(&esp_frame);
 
-		#ifdef MKS_WIFI_ENABLED_WIFI_CONFIG 
+		#if ENABLED(MKS_WIFI_CONFIGURE)
 		if(!get_packet_from_esp){
 			DEBUG("Fisrt packet from ESP, send config");
 		
